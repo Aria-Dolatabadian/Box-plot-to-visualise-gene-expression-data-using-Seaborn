@@ -2,6 +2,7 @@ import seaborn as sns
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+
 # Gene expression data
 genes = ['Gene1', 'Gene2', 'Gene3']
 expression_levels = [[2.5, 3.1, 2.8, 4.2, 3.9, 4.5],
@@ -15,10 +16,13 @@ data = pd.DataFrame({'Gene': np.repeat(genes, len(expression_levels[0])),
 # Create a box plot
 sns.boxplot(x='Gene', y='Expression', data=data)
 
+# Add scatter dots
+sns.stripplot(x='Gene', y='Expression', data=data, color='black', jitter=True, size=4)
+
 # Set labels and title
 plt.xlabel('Gene')
 plt.ylabel('Expression Level')
-plt.title('Gene Expression Box Plot')
+plt.title('Gene Expression Box Plot with Scatter Dots')
 
 # Display the plot
 plt.show()
